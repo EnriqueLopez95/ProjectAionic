@@ -1,15 +1,16 @@
 <ion-header class="ion-no-border ion-text-center">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success">
 
     <ion-buttons slot="start">
       <!--======= Volver ========-->
       <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
-         
+      <ion-menu-button *ngIf="showMenu" slot="start" menu="menu-content"></ion-menu-button>
+ 
     </ion-buttons>
     <ion-title>
       <strong>{{title}}</strong>
       <div class="Admin">
-        A D M I N
+        A G R O E C O L O G I A 
       </div>
     </ion-title>
   </ion-toolbar>
