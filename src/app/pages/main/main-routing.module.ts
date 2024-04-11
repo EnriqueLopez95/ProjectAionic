@@ -32,9 +32,14 @@ const routes: Routes = [
       {
         path: 'pagina5',
         loadChildren: () => import('./pagina5/pagina5.module').then( m => m.Pagina5PageModule)
+      },   {
+        path: 'pagina6',
+        loadChildren: () => import('./pagina6/pagina6.module').then( m => m.Pagina6PageModule)
       }
     ]
   },
+
+
 
 
 ];

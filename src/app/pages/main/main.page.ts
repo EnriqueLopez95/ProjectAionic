@@ -16,7 +16,8 @@ pages = [
   {title: 'Proteccion de Cultivos', url: '/main/pagina2', icon: 'leaf-outline'},
   {title: 'Campo Abierto', url: '/main/pagina3', icon: 'leaf-sharp'},
   {title: 'Cosecha', url: '/main/pagina4', icon: 'flower-sharp'},
-  {title: 'postcosecha', url: '/main/pagina5', icon: 'flower-outline'}
+  {title: 'Postcosecha', url: '/main/pagina5', icon: 'flower-outline'},
+  {title: 'Riesgos', url: '/main/pagina6', icon: 'bug-outline'}
 
 
 
