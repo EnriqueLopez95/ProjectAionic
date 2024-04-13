@@ -35,7 +35,16 @@ const routes: Routes = [
       },   
       {
         path: 'pagina6',
-        loadChildren: () => import('./pagina6/pagina6.module').then( m => m.Pagina6PageModule)
+        children: [
+          {
+            path: "",
+            loadChildren: () => import('./pagina6/pagina6.module').then( m => m.Pagina6PageModule)
+          },
+          {
+            path: ':pagina6Id',
+            loadChildren: () => import('./pagina6/pagina-details/pagina-details.module').then( m => m.PaginaDetailsPageModule)
+          }
+        ]
       }
     ]
   },
