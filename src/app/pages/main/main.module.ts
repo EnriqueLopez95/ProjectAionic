@@ -20,3 +20,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [MainPage]
 })
 export class MainPageModule {}
+
+export interface Plague{
+    id:string;
+    title:string;
+    imageURL: string;
+    comments : string[]
+
+}

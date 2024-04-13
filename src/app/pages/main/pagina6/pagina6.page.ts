@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MainService } from '../main.service';
+
 
 @Component({
   selector: 'app-pagina6',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Pagina6Page implements OnInit {
 
-  constructor() { }
+  plague = []
 
+  mainSvc = inject (MainService)
+
+  
   ngOnInit() {
+    this.plague = this.mainSvc.getPlagues()
+
   }
 
 }
