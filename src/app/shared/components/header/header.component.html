@@ -20,7 +20,7 @@
       </ion-item>
     </ion-title>
     <!-- Icono de búsqueda -->
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" *ngIf="!isAuth">
       <ion-button (click)="toggleSearch()">
         <ion-icon name="search" *ngIf="!showSearch"></ion-icon>
       </ion-button>

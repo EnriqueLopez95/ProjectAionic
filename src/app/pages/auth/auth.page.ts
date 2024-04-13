@@ -10,6 +10,7 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
+  isAuth: boolean = true; // Esta variable indica si el usuario está autenticado
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

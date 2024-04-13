@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  @Input() isAuth: boolean = false; // Recibe el valor de isAuth desde el componente padre
 
   @Input() title!: string;
   @Input() backButton!: string;
