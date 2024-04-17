@@ -1,10 +1,76 @@
-<app-header [showMenu]="true" title="Pagina1"></app-header>
+<app-header [showMenu]="true" title="FAMILIAS"></app-header>
 
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="card-title">Solanaceas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a [routerLink]="['/detalles-solanaceas']">
+              <img src="https://th.bing.com/th/id/R.5e5f175b56f6fa0ae3c8b8e799ca5092?rik=9Y0ChCO2bT0%2f5w&pid=ImgRaw&r=0" alt="Solanaceas" class="card-image">
+            </a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pagina1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="card-title">Cucurbitáceas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a [routerLink]="['/detalles-cucurbitaceas']">
+              <img src="https://www.millerchemical.com/es/wp-content/uploads/sites/2/2021/02/iStock-827572474.jpg" alt="Cucurbitáceas" class="card-image">
+            </a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="card-title">Crucíferas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a [routerLink]="['/detalles-cruciferas']">
+              <img src="https://th.bing.com/th/id/OIP.b6mPVJyt-9TsttJYR6mmQQHaE1?rs=1&pid=ImgDetMain" alt="Crucíferas" class="card-image">
+            </a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="card-title">Apiaceae</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a [routerLink]="['/detalles-apiaceae']">
+              <img src="https://frutasyverduras.info/wp-content/uploads/2019/06/cilantro.jpg" alt="Apiaceae" class="card-image">
+            </a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="card-title">Amarylidáceas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a [routerLink]="['/detalles-amarylidaceas']">
+              <img src="https://www.trespm.mx/media/k2/items/cache/9d3e06f8c7e2b5d8ad295df4c801a986_XL.jpg" alt="Amarylidáceas" class="card-image">
+            </a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
