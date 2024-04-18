@@ -87,12 +87,12 @@ ion-button {
     padding: 20px;
 }
 
-.product-item {
+.cultivo-item {
     --padding-top: 20px;
 
     ion-avatar {
         width: 70px;
-        height: 80px;
+        height: 75px;
         --border-radius: 15px;
     }
 
@@ -128,4 +128,10 @@ ion-button {
     .add-update-modal {
         --height: 680px;
     }
+
+    .amarylidaceas-detail-modal {
+        --height: 680px;
+    }
+
+
 }

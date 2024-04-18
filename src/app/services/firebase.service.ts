@@ -59,6 +59,13 @@ signUp(user: User){
 
   //=====================Base de Datos===============================
 
+//=================== Obtener documentos de una coleccion ================================
+getCollectionData(path: string, collectionQuery?: any){
+  const ref = collection(getFirestore(), path);
+  return collectionData(query(ref, collectionQuery), {idField: 'aid'});
+}
+
+
 //=================== Setear un documento ================================
 setDocument(path: string, data: any){
   return setDoc(doc(getFirestore(), path), data);
@@ -67,4 +74,20 @@ setDocument(path: string, data: any){
 async getDocument(path: string){
   return (await getDoc(doc(getFirestore(), path))).data();
 }
+
+//===================== Agregar un Documento ===============================
+
+addDocument(path: string, data: any){
+  return addDoc(collection(getFirestore(), path), data);
+}
+//=================== Actualizar un documento ================================
+updateDocument(path: string, data: any){
+  return updateDoc(doc(getFirestore(), path), data);
+}
+
+//=================== Eliminar un documento ================================
+deleteDocument(path: string){
+  return deleteDoc(doc(getFirestore(), path));
+}
+
 }

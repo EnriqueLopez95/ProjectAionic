@@ -2,9 +2,77 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">amarylidaceas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+  <ion-card *ngIf="!loading">
+    <ion-card-content>
+      <img src="https://www.trespm.mx/media/k2/items/cache/9d3e06f8c7e2b5d8ad295df4c801a986_XL.jpg" alt="Amarylidaceas" class="family-image">
+      <p>La familia Amarylidaceae es una familia de plantas con flores que incluye una amplia variedad de especies, muchas de las cuales son de gran importancia económica y cultural. Estas plantas son principalmente herbáceas perennes, aunque algunas especies son anuales o bulbosas. La familia Amarylidaceae se caracteriza por tener hojas alternas o en espiral y flores con seis tépalos similares en apariencia a los pétalos.
+
+        Dentro de la familia Amarylidaceae se encuentran varias plantas ampliamente conocidas y utilizadas, como la cebolla (Allium cepa), el ajo (Allium sativum), el puerro (Allium ampeloprasum), la cebolleta (Allium fistulosum) y el ajo porro (Allium porrum). Estas plantas son ampliamente cultivadas en todo el mundo por sus bulbos comestibles, que son una importante fuente de nutrientes y sabor en la cocina.
+        
+        Además de su valor culinario, algunas especies de Amarylidaceae tienen usos medicinales y se utilizan en la medicina tradicional para tratar una variedad de dolencias. Por ejemplo, el ajo se ha utilizado históricamente como un remedio para el resfriado común y otras enfermedades, y se ha investigado por sus posibles efectos en la salud cardiovascular y la inmunidad.
+        
+        En resumen, la familia Amarylidaceae es una familia diversa de plantas con flores que incluye muchas especies de importancia económica y cultural, y que desempeña un papel importante en la cocina, la medicina y la horticultura en todo el mundo.</p>
+    </ion-card-content>
+  </ion-card>
+
+
+<!-------- PRODUCTOS -------->
+<ion-list *ngIf="!loading">
+  <div class="data ion-text-center">
+    <strong>Cultivos que la integran:</strong>
+  </div>
+  <ion-item-sliding class="product-item" *ngFor="let c of cultivos">
+    <ion-item (click)="amarylidaceasDetail(c)">
+      <ion-avatar>
+        <img [src]="c.imagen" />
+      </ion-avatar>
+      <ion-label class="ion-text-center">
+        <div class="name"><strong>{{c.nombre}}</strong></div>
+      </ion-label>
+    </ion-item>
+
+          <!--=========== Opciones =============-->
+
+    <ion-item-options>
+
+        <!--=========== Editar Cultivo =============-->
+      <ion-item-option (click)="AddUpdateAmarylidaceas(c)">
+        <ion-icon class="option-btn" name="create-outline"></ion-icon>
+      </ion-item-option>
+
+                  <!--=========== Eliminar Cultivo =============-->          
+      <ion-item-option (click)="confirmDeleteAmarylidaceas(c)" color="danger">
+        <ion-icon class="option-btn" name="trash-outline"></ion-icon>
+      </ion-item-option>
+
+    </ion-item-options>
+
+
+  </ion-item-sliding>
+</ion-list>
+
+<!--------------CARGANDO------------------>
+
+<ion-list *ngIf="loading">
+    <ion-item class="product-item" *ngFor="let c of [1,1,1,1,1,1,1,1,1,1]">
+      <ion-avatar slot="start">
+<ion-skeleton-text animated style="width: 100%; height: 100%"></ion-skeleton-text>      </ion-avatar>
+      <ion-label class="ion-text-center">
+<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+<ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </ion-label>
+    </ion-item>
+
+</ion-list>
+
+
+
+  <!--=========== Nuevo Cultivo =============-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AddUpdateAmarylidaceas()" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

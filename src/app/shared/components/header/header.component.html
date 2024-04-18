@@ -4,26 +4,18 @@
       <!--======= Volver ========-->
       <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
       <ion-menu-button *ngIf="showMenu" slot="start" menu="menu-content"></ion-menu-button>
+
+            <!--======= Cerrar Modal ========-->
+
+            <ion-button (click)="dismissModal()" *ngIf="isModal">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
     </ion-buttons>
     <ion-title>
       <strong *ngIf="!showSearch">{{ title }}</strong>
       <div class="Admin" *ngIf="!showSearch">
         A G R O E C O L O G I A 
       </div>
-      <!-- Espacio para escribir -->
-      <ion-item lines="none" class="search-input" *ngIf="showSearch">
-        <ion-input type="text" placeholder="Buscar" [(ngModel)]="terminoBusqueda" (keyup.enter)="buscar()"></ion-input>
-        <!-- Icono de búsqueda dentro del espacio -->
-        <ion-buttons slot="end" (click)="buscar()">
-          <ion-icon name="search"></ion-icon>
-        </ion-buttons>
-      </ion-item>
     </ion-title>
-    <!-- Icono de búsqueda -->
-    <ion-buttons slot="end" *ngIf="!isAuth">
-      <ion-button (click)="toggleSearch()">
-        <ion-icon name="search" *ngIf="!showSearch"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>

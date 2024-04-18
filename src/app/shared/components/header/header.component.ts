@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-header',
@@ -13,21 +14,17 @@ export class HeaderComponent {
   @Input() isModal!: boolean;
   @Input() showMenu!: boolean;
 
+  utilsSvc = inject(UtilsService)
+
   showSearch: boolean = false;
-  terminoBusqueda: string = '';
 
   constructor() {}
   toggleSearch() {
     this.showSearch = !this.showSearch;
   }
 
-  buscar() {
-    // Lógica de búsqueda
-    console.log('Término de búsqueda:', this.terminoBusqueda);
-    // Aquí puedes implementar la lógica de búsqueda real
-
-    // Después de realizar la búsqueda, puedes cerrar el espacio para escribir
-    this.showSearch = false;
+  dismissModal(){
+    this.utilsSvc.dismissModal();
   }
 
 

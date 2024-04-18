@@ -9,7 +9,9 @@ export class UtilsService {
 // =============== loading =================
   loadingCtrl= inject(LoadingController);
   toastCtrl= inject(ToastController);
+  modalCtrl= inject(ModalController);
   router= inject(Router);
+  alertCtrl= inject(AlertController);
 
   async loading() {
     const loading = await this.loadingCtrl.create({
@@ -43,5 +45,25 @@ export class UtilsService {
       return JSON.parse(localStorage.getItem(key))
     }
 
+  //============================ Modal =======================================
+  async presentModal(opts: ModalOptions) {
+    const modal = await this.modalCtrl.create(opts);
+  
+    await modal.present();
+
+    const {data} = await modal.onWillDismiss();
+    if (data) return data;
+  }
+  dismissModal(data?: any){
+    return this.modalCtrl.dismiss(data);
+  }
     
+
+  //================== Alerta====================00
+  async presentAlert(opts?: AlertOptions) {
+    const alert = await this.alertCtrl.create(opts);
+  
+    await alert.present();
+  }
+
 }

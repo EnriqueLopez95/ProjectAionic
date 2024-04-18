@@ -5,6 +5,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddUpdateAmarylidaceasComponent } from './components/add-update-amarylidaceas/add-update-amarylidaceas.component';
+import { AmarylidaceasDetailComponent } from './components/amarylidaceas-detail/amarylidaceas-detail.component';
 
 
 
@@ -13,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     CustomInputComponent,
     LogoComponent,
+    AddUpdateAmarylidaceasComponent,
+    AmarylidaceasDetailComponent
     
   ],
   exports: [
@@ -20,7 +24,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CustomInputComponent,
     LogoComponent,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    AddUpdateAmarylidaceasComponent,
+    AmarylidaceasDetailComponent
+
   ],
   imports: [
     CommonModule,
