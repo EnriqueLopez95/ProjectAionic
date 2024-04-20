@@ -1,10 +1,73 @@
 <app-header backButton="main/pagina1" title="Apiaceae"></app-header>
 
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">apiaceae</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+  <ion-card *ngIf="!loading">
+    <ion-card-content>
+      <img src="https://www.ecoregistros.org/site/images/dataimages/2022/01/12/478823/m_Apiaceae-sp._Pilar.jpg" alt="Apiaceae" class="family-image">
+      <p>Las apiáceas (Apiaceae, anteriormente clasificada como Umbelliferae​) es una familia de plantas herbáceas y arbustos fanerógamas perteneciente al orden de las apiales.
+        ​ Esta familia está constituida por unos 418 géneros y más de 3257 especies aceptadas
+        ​ extendidas por todo el mundo, aunque son poco frecuentes en zonas tropicales, desérticas y en Australia.</p>
+    </ion-card-content>
+  </ion-card>
+
+
+<!-------- PRODUCTOS -------->
+<ion-list *ngIf="!loading">
+  <div class="data ion-text-center">
+    <strong>Cultivos que la integran:</strong>
+  </div>
+  <ion-item-sliding class="product-item" *ngFor="let c of cultivos">
+    <ion-item (click)="ApiaceaeDetail(c)">
+      <ion-avatar>
+        <img [src]="c.imagen" />
+      </ion-avatar>
+      <ion-label class="ion-text-center">
+        <div class="name"><strong>{{c.nombre}}</strong></div>
+      </ion-label>
+    </ion-item>
+
+          <!--=========== Opciones =============-->
+
+    <ion-item-options>
+
+        <!--=========== Editar Cultivo =============-->
+      <ion-item-option (click)="AddUpdateApiaceae(c)">
+        <ion-icon class="option-btn" name="create-outline"></ion-icon>
+      </ion-item-option>
+
+                  <!--=========== Eliminar Cultivo =============-->          
+      <ion-item-option (click)="confirmDeleteApiaceae(c)" color="danger">
+        <ion-icon class="option-btn" name="trash-outline"></ion-icon>
+      </ion-item-option>
+
+    </ion-item-options>
+
+
+  </ion-item-sliding>
+</ion-list>
+
+<!--------------CARGANDO------------------>
+
+<ion-list *ngIf="loading">
+    <ion-item class="product-item" *ngFor="let c of [1,1,1,1,1,1,1,1,1,1]">
+      <ion-avatar slot="start">
+<ion-skeleton-text animated style="width: 100%; height: 100%"></ion-skeleton-text>      </ion-avatar>
+      <ion-label class="ion-text-center">
+<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+<ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </ion-label>
+    </ion-item>
+
+</ion-list>
+
+
+
+  <!--=========== Nuevo Cultivo =============-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AddUpdateApiaceae()" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

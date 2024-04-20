@@ -1,0 +1,33 @@
+.cultivo-box {
+    border: 1px solid #ccc; /* Borde para los cuadros */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .data {
+    color: #333; /* Color de texto para los datos */
+  }
+  .cultivo-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ancho deseado para todas las imágenes */
+    height: 200px; /* Alto deseado para todas las imágenes */
+    overflow: hidden;
+  }
+  
+  .cultivo-image {
+    width: 100%; /* Ancho del 100% del contenedor */
+    height: 100%; /* Alto del 100% del contenedor */
+    object-fit: cover; /* Para ajustar la imagen dentro del contenedor sin distorsión */
+  }
+  
+  ion-card-content {
+    text-align: justify;
+  }
+  
