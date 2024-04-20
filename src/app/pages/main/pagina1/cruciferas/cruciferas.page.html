@@ -1,10 +1,74 @@
 <app-header backButton="main/pagina1" title="Cruciferas"></app-header>
 
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cruciferas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+  <ion-card *ngIf="!loading">
+    <ion-card-content>
+      <img src="https://images.cookforyourlife.org/wp-content/uploads/2017/04/Por-que-Cruciferas.jpg" alt="Cruciferas" class="family-image">
+      <p>Las verduras crucíferas son aquellas que pertenecen a la familia botánica de las brasicáceas (Brassicaceae), entre las cuales se incluyen 
+        todos los tipos de coles o repollos (la col común, la china, la de Bruselas, la coliflor, el romanesco, el brócoli, el brócoli chino, el colinabo, el kale o col rizada, el nabo, etc.), todos los tipos de rábanos 
+        (el común, el picante, el amarillo, el daikon, etc.), y también el ajopuerro, la maca, el kale. Es uno de los tres grandes grupos de verduras de la alimentación 
+        humana (junto con las verduras de hoja y las hortalizas), los cuales son la base de una dieta sana y se deben consumir en iguales proporciones.</p>
+    </ion-card-content>
+  </ion-card>
+
+
+<!-------- PRODUCTOS -------->
+<ion-list *ngIf="!loading">
+  <div class="data ion-text-center">
+    <strong>Cultivos que la integran:</strong>
+  </div>
+  <ion-item-sliding class="product-item" *ngFor="let c of cultivos">
+    <ion-item (click)="CruciferasDetail(c)">
+      <ion-avatar>
+        <img [src]="c.imagen" />
+      </ion-avatar>
+      <ion-label class="ion-text-center">
+        <div class="name"><strong>{{c.nombre}}</strong></div>
+      </ion-label>
+    </ion-item>
+
+          <!--=========== Opciones =============-->
+
+    <ion-item-options>
+
+        <!--=========== Editar Cultivo =============-->
+      <ion-item-option (click)="AddUpdateCruciferas(c)">
+        <ion-icon class="option-btn" name="create-outline"></ion-icon>
+      </ion-item-option>
+
+                  <!--=========== Eliminar Cultivo =============-->          
+      <ion-item-option (click)="confirmDeleteCruciferas(c)" color="danger">
+        <ion-icon class="option-btn" name="trash-outline"></ion-icon>
+      </ion-item-option>
+
+    </ion-item-options>
+
+
+  </ion-item-sliding>
+</ion-list>
+
+<!--------------CARGANDO------------------>
+
+<ion-list *ngIf="loading">
+    <ion-item class="product-item" *ngFor="let c of [1,1,1,1,1,1,1,1,1,1]">
+      <ion-avatar slot="start">
+<ion-skeleton-text animated style="width: 100%; height: 100%"></ion-skeleton-text>      </ion-avatar>
+      <ion-label class="ion-text-center">
+<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+<ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </ion-label>
+    </ion-item>
+
+</ion-list>
+
+
+
+  <!--=========== Nuevo Cultivo =============-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AddUpdateCruciferas()" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -9,6 +9,9 @@ import { AddUpdateAmarylidaceasComponent } from './components/add-update-amaryli
 import { AmarylidaceasDetailComponent } from './components/amarylidaceas-detail/amarylidaceas-detail.component';
 import { AddUpdateApiaceaeComponent } from './components/add-update-apiaceae/add-update-apiaceae.component';
 import { ApiaceaeDetailComponent } from './components/apiaceae-detail/apiaceae-detail.component';
+import { CruciferasDetailComponent } from './components/cruciferas-detail/cruciferas-detail.component';
+import { AddUpdateCruciferasComponent } from './components/add-update-cruciferas/add-update-cruciferas.component';
+
 
 
 
@@ -20,7 +23,9 @@ import { ApiaceaeDetailComponent } from './components/apiaceae-detail/apiaceae-d
     AddUpdateAmarylidaceasComponent,
     AmarylidaceasDetailComponent,
     AddUpdateApiaceaeComponent,
-    ApiaceaeDetailComponent
+    ApiaceaeDetailComponent,
+    CruciferasDetailComponent,
+    AddUpdateCruciferasComponent
     
   ],
   exports: [
@@ -32,8 +37,9 @@ import { ApiaceaeDetailComponent } from './components/apiaceae-detail/apiaceae-d
     AddUpdateAmarylidaceasComponent,
     AmarylidaceasDetailComponent,
     AddUpdateApiaceaeComponent,
-    ApiaceaeDetailComponent
-
+    ApiaceaeDetailComponent,
+    CruciferasDetailComponent,
+    AddUpdateCruciferasComponent
   ],
   imports: [
     CommonModule,

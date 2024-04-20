@@ -99,7 +99,7 @@ ionViewWillEnter() {
     //==================== Eliminar Producto ======================
     async deleteApiaceae(cultivos: ApiaceaeM) {
     
-      let path =`/Amarylidáceas/${cultivos.aid}`
+      let path =`/Apiaceae/${cultivos.aid}`
     
       const loading = await this.utilsSvc.loading();
       await loading.present();
