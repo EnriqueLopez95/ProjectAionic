@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SolanaceasPageRoutingModule } from './solanaceas-routing.module';
+import { solanaceasPageRoutingModule } from './solanaceas-routing.module';
 
-import { SolanaceasPage } from './solanaceas.page';
+import { solanaceasPage } from './solanaceas.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    SolanaceasPageRoutingModule,
+    solanaceasPageRoutingModule,
     SharedModule
   ],
-  declarations: [SolanaceasPage]
+  declarations: [solanaceasPage]
 })
 export class SolanaceasPageModule {}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NoAuthGuard } from './guards/no-auth.guard';
 import { AuthGuard } from './guards/auth.guard';
-import { SolanaceasPage } from './pages/main/pagina1/solanaceas/solanaceas.page';
+import { solanaceasPage } from './pages/main/pagina1/solanaceas/solanaceas.page';
 import { CucurbitaceasPage } from './pages/main/pagina1/cucurbitaceas/cucurbitaceas.page';
 import { CruciferasPage } from './pages/main/pagina1/cruciferas/cruciferas.page';
 import { ApiaceaePage } from './pages/main/pagina1/apiaceae/apiaceae.page';
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
 
 
-  { path: 'detalles-solanaceas', component: SolanaceasPage },
+  { path: 'detalles-solanaceas', component: solanaceasPage },
   { path: 'detalles-cucurbitaceas', component: CucurbitaceasPage },
   { path: 'detalles-cruciferas', component: CruciferasPage },
   { path: 'detalles-apiaceae', component: ApiaceaePage },
