@@ -11,7 +11,8 @@ import { AddUpdateApiaceaeComponent } from './components/add-update-apiaceae/add
 import { ApiaceaeDetailComponent } from './components/apiaceae-detail/apiaceae-detail.component';
 import { CruciferasDetailComponent } from './components/cruciferas-detail/cruciferas-detail.component';
 import { AddUpdateCruciferasComponent } from './components/add-update-cruciferas/add-update-cruciferas.component';
-
+import { AddUpdateCucurbitaceasComponent } from './components/add-update-cucurbitaceas/add-update-cucurbitaceas.component';
+import { CurcubitaceasDetailComponent } from './components/curcubitaceas-detail/curcubitaceas-detail.component';
 
 
 
@@ -25,7 +26,10 @@ import { AddUpdateCruciferasComponent } from './components/add-update-cruciferas
     AddUpdateApiaceaeComponent,
     ApiaceaeDetailComponent,
     CruciferasDetailComponent,
-    AddUpdateCruciferasComponent
+    AddUpdateCruciferasComponent,
+    AddUpdateCucurbitaceasComponent,
+    CurcubitaceasDetailComponent
+
     
   ],
   exports: [
@@ -39,7 +43,10 @@ import { AddUpdateCruciferasComponent } from './components/add-update-cruciferas
     AddUpdateApiaceaeComponent,
     ApiaceaeDetailComponent,
     CruciferasDetailComponent,
-    AddUpdateCruciferasComponent
+    AddUpdateCruciferasComponent,
+    AddUpdateCucurbitaceasComponent,
+    CurcubitaceasDetailComponent
+
   ],
   imports: [
     CommonModule,

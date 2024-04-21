@@ -1,10 +1,94 @@
-<app-header backButton="main/pagina1" title="Cucurbitaceas"></app-header>
+<app-header backButton="main/pagina1" title="Curcubitaceas"></app-header>
 
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cucurbitaceas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+  <ion-card *ngIf="!loading">
+    <ion-card-content>
+     
+
+      <div class="container">
+        <img src="https://cdn.britannica.com/46/12546-004-D2AE3984/Cucurbits.jpg" alt="Amarylidaceas" class="family-image">
+      </div>
+      
+      <p>
+
+        Las cucurbitáceas comprenden unas 700 especies de plantas distribuidas fundamentalmente
+         por los países cálidos, son plantas anuales y con un gran valor por sus frutos voluminosos y
+          comestibles.
+
+Son característicamente hierbas rastreras o trepadoras mediante zarcillos en los tallos (caulinares); 
+muestran hojas alternas, en general simples, más o menos lobadas, carnosas, escabras; poseen cistolitos. 
+Las flores son unisexuales, las masculinas con traza de gineceo, generalmente monoicas (Bryonia craetica 
+excepcionalmente es dioica), regulares, gamopétalas, pentámeras, con periantio doble y estambres atípicos: filamento 
+sigmoide rematado por una antera con una única teca, estambres libres o soldados en 3 grupos: (2)+(2)+1. En las formas 
+primitivas se muestran los pétalos libres, y el ovario ínfero; algunas presentan inflorescencias en cima. Los frutos son muy variables; 
+casi siempre son bayas (Bryonia) o bayas modificadas (pepónides), pero a veces se presentan como cápsulas (Momordica), a veces en elaterio.
+      </p>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+<!-------- PRODUCTOS -------->
+<ion-list *ngIf="!loading">
+  <div class="data ion-text-center">
+    <br>
+    <strong>Cultivos que la integran:</strong>
+  </div>
+  <br>
+  <ion-item-sliding class="product-item" *ngFor="let c of cultivos">
+    <ion-item (click)="amarylidaceasDetail(c)">
+      <ion-avatar>
+        <img [src]="c.imagen" />
+      </ion-avatar>
+      <ion-label class="ion-text-center">
+        <div class="name"><strong>{{c.nombre}}</strong></div>
+      </ion-label>
+    </ion-item>
+
+          <!--=========== Opciones =============-->
+
+    <ion-item-options>
+
+        <!--=========== Editar Cultivo =============-->
+      <ion-item-option (click)="AddUpdateAmarylidaceas(c)">
+        <ion-icon class="option-btn" name="create-outline"></ion-icon>
+      </ion-item-option>
+
+                  <!--=========== Eliminar Cultivo =============-->          
+      <ion-item-option (click)="confirmDeleteAmarylidaceas(c)" color="danger">
+        <ion-icon class="option-btn" name="trash-outline"></ion-icon>
+      </ion-item-option>
+
+    </ion-item-options>
+
+
+  </ion-item-sliding>
+</ion-list>
+
+<!--------------CARGANDO------------------>
+
+<ion-list *ngIf="loading">
+    <ion-item class="product-item" *ngFor="let c of [1,1,1,1,1,1,1,1,1,1]">
+      <ion-avatar slot="start">
+<ion-skeleton-text animated style="width: 100%; height: 100%"></ion-skeleton-text>      </ion-avatar>
+      <ion-label class="ion-text-center">
+<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+<ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </ion-label>
+    </ion-item>
+
+</ion-list>
+
+
+
+  <!--=========== Nuevo Cultivo =============-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AddUpdateAmarylidaceas()" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

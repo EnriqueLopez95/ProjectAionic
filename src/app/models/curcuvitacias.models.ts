@@ -1,4 +1,4 @@
-export interface AmarylidaceasM {
+export interface Curcuvitacias{
     aid: string,
     nombre: string,
     descripcion: string,
@@ -8,9 +8,5 @@ export interface AmarylidaceasM {
     MarcoCultivo: string,
     Riego: string,
     cultivosCicloCorto: string
-  }
 
-  
-
-  
-  
+}

@@ -1,0 +1,41 @@
+<app-header [isAuth]="true" [isModal]="true" title="Detalles del cultivo"></app-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card class="cultivo-card" *ngIf="cultivo">
+    <ion-card-header>
+      <ion-card-title>{{cultivo.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <div class="cultivo-image-container">
+        <img [src]="cultivo.imagen" class="cultivo-image" /></div> <br>      
+          <div class="cultivo-details">
+        <div class="cultivo-box">
+          <ion-label class="label">Descripción:</ion-label>
+          <ion-text class="data">{{cultivo.descripcion}}</ion-text>
+        </div>
+        <div class="cultivo-box">
+          <ion-label class="label">Calendario de cultivo:</ion-label>
+          <ion-text class="data">{{cultivo.tiempoCosecha}}</ion-text>
+        </div>
+        <div class="cultivo-box">
+          <ion-label class="label">Fertilización del cultivo:</ion-label>
+          <ion-text class="data">{{cultivo.fertilizacion}}</ion-text>
+        </div>
+        <div class="cultivo-box">
+          <ion-label class="label">Marco de plantación:</ion-label>
+          <ion-text class="data">{{cultivo.MarcoCultivo}}</ion-text>
+        </div>
+        <div class="cultivo-box">
+          <ion-label class="label">Riego:</ion-label>
+          <ion-text class="data">{{cultivo.Riego}}</ion-text>
+        </div>
+        <div class="cultivo-box">
+          <ion-label class="label">Cultivos asociables:</ion-label>
+          <ion-text class="data">{{cultivo.cultivosCicloCorto}}</ion-text>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
