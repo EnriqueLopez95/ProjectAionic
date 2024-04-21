@@ -48,7 +48,7 @@ ionViewWillEnter() {
   async ApiaceaeDetail(cultivo?: ApiaceaeM) {
     let success = await this.utilsSvc.presentModal({
       component: ApiaceaeDetailComponent,
-      cssClass: 'Apiaceae-detal-modal',
+      cssClass: 'Apiaceae-detail-modal',
       componentProps: { cultivo } // Pasa el cultivo específico al modal
     });
   

@@ -50,7 +50,7 @@ ionViewWillEnter() {
   async CruciferasDetail(cultivo?: CruciferasM) {
     let success = await this.utilsSvc.presentModal({
       component: CruciferasDetailComponent,
-      cssClass: 'Cruciferas-detal-modal',
+      cssClass: 'Cruciferas-detail-modal',
       componentProps: { cultivo } // Pasa el cultivo específico al modal
     });
   
