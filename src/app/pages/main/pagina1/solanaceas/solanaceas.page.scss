@@ -16,6 +16,10 @@ ion-card {
     text-align: justify;
   }
   
-
-
-  
+  .family-image {
+    display: block;
+    margin: 0 auto; /* Esto centra la imagen horizontalmente */
+    width: 300px; /* Define el ancho deseado */
+    height: 200px; /* Define la altura deseada */
+    object-fit: cover; /* Esto asegura que la imagen se ajuste al tamaño definido sin distorsionarla */
+  }
