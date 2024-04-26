@@ -13,6 +13,8 @@ import { CruciferasDetailComponent } from './components/cruciferas-detail/crucif
 import { AddUpdateCruciferasComponent } from './components/add-update-cruciferas/add-update-cruciferas.component';
 import { AddUpdateCucurbitaceasComponent } from './components/add-update-cucurbitaceas/add-update-cucurbitaceas.component';
 import { CurcubitaceasDetailComponent } from './components/curcubitaceas-detail/curcubitaceas-detail.component';
+import { solanaceasDetailComponent } from './components/solanaceas-detail/solanaceas-detail.component.spec';
+import { AddUpdatesolanaceasComponent } from './components/add-update-solanaceas/add-update-solanaceas.component';
 
 
 
@@ -28,8 +30,9 @@ import { CurcubitaceasDetailComponent } from './components/curcubitaceas-detail/
     CruciferasDetailComponent,
     AddUpdateCruciferasComponent,
     AddUpdateCucurbitaceasComponent,
-    CurcubitaceasDetailComponent
-
+    CurcubitaceasDetailComponent,
+    solanaceasDetailComponent,
+    AddUpdatesolanaceasComponent
     
   ],
   exports: [
@@ -45,7 +48,9 @@ import { CurcubitaceasDetailComponent } from './components/curcubitaceas-detail/
     CruciferasDetailComponent,
     AddUpdateCruciferasComponent,
     AddUpdateCucurbitaceasComponent,
-    CurcubitaceasDetailComponent
+    CurcubitaceasDetailComponent,
+    solanaceasDetailComponent,
+    AddUpdatesolanaceasComponent
 
   ],
   imports: [
