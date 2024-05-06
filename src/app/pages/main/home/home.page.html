@@ -1,10 +1,91 @@
-<app-header [showMenu]="true" title="Inicio"></app-header>
-
+<app-header [showMenu]="true" title=""></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Aquí puedes colocar el contenido directamente sin necesidad de otra etiqueta ion-content -->
+  <div class="container">
+    <!-- Mensaje de bienvenida -->
+    
+    <div class="welcome-message">
+      
+      
+      <p>APP PARA ASOCIO DE CULTIVOS DE CICLOS CORTOS</p>
+    </div>
+
+    <!-- Carrusel de imágenes -->
+    <swiper-container 
+      #swiper
+      (afterinit)="swiperReady()"
+      (slidechange)="swiperSlideChanged($event)" 
+      [loop]="true" [pagination]="true"
+      [pagination]="true"
+      [autoplay]="true"
+      [speed]="2000" 
+
+
+    >
+      <swiper-slide *ngFor="let image of images">
+        <div class="swiper-zoom-container">
+          <img [src]="image" />
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <div class="button-container">
+      <!-- Botón de Instagram -->
+      <ion-button expand="slot" href="https://www.instagram.com/uluterana/" target="_blank" class="social-button instagram-button">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+    
+      <!-- Botón de Facebook -->
+      <ion-button expand="slot" href="https://www.facebook.com/ULuterana" target="_blank" class="social-button facebook-button">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+    
+      <!-- Botón de YouTube -->
+      <ion-button expand="slot" href="https://www.youtube.com/@uls1991" target="_blank" class="social-button youtube-button">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-button>
+    
+      <!-- Botón de la página web -->
+      <ion-button expand="slot" href="https://uls.edu.sv/sitioweb/" target="_blank" class="social-button website-button">
+        <ion-icon name="globe-outline"></ion-icon>
+      </ion-button>
+    </div>
+    
+
+    <ion-card class="description-section" (click)="mostrarInformacion = !mostrarInformacion">
+      <ion-card-content>
+        <ion-card-title>Haz click aquí para conocer más de la<br> "Aplicación"</ion-card-title>
+        <div *ngIf="mostrarInformacion">
+          <p>
+            Esta App: Maximiza tu Cosecha con Asociaciones Inteligentes
+    
+            Nuestra App es tu compañero perfecto en el mundo de la agricultura sostenible. Con un enfoque en el asocio de cultivos de ciclo corto, nuestra aplicación te guía paso a paso para optimizar tus cosechas y promover la biodiversidad en tu cultivo.
+            
+            <h1>Características Principales:</h1>
+            <ul>
+              <li>Asocio de Cultivos Simplificado: Aprende cómo combinar diferentes especies vegetales para maximizar la productividad y mejorar la salud de tu suelo.</li>
+              <li>Planificación de Siembras: Descubre cuáles son las mejores combinaciones de cultivos para tu región y estación del año.</li>
+              <li>Consejos y Recomendaciones: Recibe consejos prácticos y recomendaciones basadas en la experiencia de agricultores expertos.</li>
+              <li>Conoce las Familias de Cultivos: Descubre cómo clasificar los cultivos en diferentes familias y las ventajas de la rotación entre ellas.</li>
+              <li>Sección de Comentarios: Destacamos la sección de comentarios donde los usuarios pueden dejar sus opiniones y compartir experiencias.</li>
+            </ul>
+          <p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+    
+    
+    
+
+    <!-- Encabezado colapsable -->
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">home</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+
+  
 </ion-content>

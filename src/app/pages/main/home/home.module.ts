@@ -9,6 +9,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +19,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HomePageRoutingModule,
     SharedModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class HomePageModule {}

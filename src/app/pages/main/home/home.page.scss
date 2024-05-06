@@ -1,0 +1,104 @@
+swiper-container {
+    width: 100%;
+    height: 100%;
+    padding: 40px; /* Ajusta el padding según tus preferencias */
+}
+
+swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para la tarjeta de título de la aplicación */
+.app-title {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-bottom: 30px; /* Espacio inferior */
+    color: #000000;
+    padding: auto;
+}
+
+.welcome-message {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior */
+  }
+  
+  .welcome-message h1 {
+    font-size: 38px; /* Tamaño grande para el título */
+    color: #1e70fd; /* Color azul para destacar */
+    margin-bottom: 10px; /* Espacio inferior */
+  }
+  
+  .welcome-message p {
+    font-size: 33px; /* Tamaño del texto */
+    color: #0ae13c; /* Color del texto */
+    font-weight: bold; /* Letra en negrita */
+  }
+
+  .description-section {
+    background-color: #9cf5c4; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .description-section ion-card-title {
+    font-size: 34px; /* Tamaño de fuente para el título */
+    font-weight: bold; /* Texto en negrita */
+    color: #3880ff; /* Color del texto */
+    margin-bottom: 10px; /* Espacio inferior */
+  }
+  
+  .description-section p {
+    font-size: 28px; /* Tamaño de fuente para el contenido */
+    color: #666; /* Color del texto */
+    line-height: 1.5; /* Altura de línea */
+  }
+
+/* Estilo para el h1 dentro de la sección de descripción */
+.description-section h1 {
+    font-size: 30px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: #3880ff; /* Color azul */
+    margin-top: 20px; /* Espacio superior */
+    margin-bottom: 10px; /* Espacio inferior */
+  }
+  
+/* Estilo para los elementos de lista (li) dentro de la sección de descripción */
+.description-section li {
+    font-size: 24px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    margin-bottom: 10px; /* Margen inferior */
+  }
+
+  .button-container {
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centra horizontalmente los elementos */
+  }
+
+  .social-button {
+    --border-radius: 20px; /* Radio de borde */
+    --padding-start: 8px; /* Espaciado al inicio */
+    --padding-end: 8px; /* Espaciado al final */
+    --padding-top: 6px; /* Espaciado superior */
+    --padding-bottom: 6px; /* Espaciado inferior */
+    --background: transparent; /* Color de fondo transparente */
+  }
+  
+  .instagram-button {
+    color: #833ab4; /* Color de Instagram */
+  }
+  
+  .facebook-button {
+    color: #3b5998; /* Color de Facebook */
+  }
+  
+  .youtube-button {
+    color: #ff0000; /* Color de YouTube */
+  }
+  
+  .website-button {
+    color: #000; /* Color de la página web */
+  }
+  
