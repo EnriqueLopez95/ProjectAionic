@@ -28,8 +28,13 @@ export class HomePage implements OnInit {
   }
 
   swiperReady(){
-    this.swiperRef.nativeElement.swiper;
+    if(this.swiperRef){
+      this.swiper = new Swiper(this.swiperRef.nativeElement, {
+        // opciones de configuración de Swiper
+      });
+    }
   }
+  
 
   goNext(){
     this.swiper?.slideNext
