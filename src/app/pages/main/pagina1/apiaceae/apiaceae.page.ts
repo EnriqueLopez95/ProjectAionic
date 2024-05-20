@@ -5,6 +5,8 @@ import { ModalController } from '@ionic/angular';
 import { ApiaceaeM } from 'src/app/models/apiaceae.model';
 import { AddUpdateApiaceaeComponent } from 'src/app/shared/components/add-update-apiaceae/add-update-apiaceae.component';
 import { ApiaceaeDetailComponent } from 'src/app/shared/components/apiaceae-detail/apiaceae-detail.component';
+import { User } from 'src/app/models/user.model'; // Asegúrate de importar el modelo de usuario aquí
+
 @Component({
   selector: 'app-apiaceae',
   templateUrl: './apiaceae.page.html',
@@ -14,13 +16,14 @@ export class ApiaceaePage implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService)
   constructor(private modalController: ModalController) {}
-
+userRole: string = '';
 loading: boolean = false;
 cultivos: ApiaceaeM[] = [];
 cultivoSeleccionado: ApiaceaeM; // Variable para almacenar el cultivo seleccionado
 
 
-  ngOnInit() {
+  ngOnInit() {    
+    this.getUserRole();
   }
 
 
@@ -136,5 +139,15 @@ ionViewWillEnter() {
     
     }
 
+
+
+        getUserRole() {
+      this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
+        if (user) {
+          // Suponemos que 'user.role' es el campo que contiene el rol del usuario en Firestore
+          this.userRole = user.role;
+        }
+      });
+    }
 }
 

@@ -49,12 +49,12 @@ casi siempre son bayas (Bryonia) o bayas modificadas (pepónides), pero a veces 
     <ion-item-options>
 
         <!--=========== Editar Cultivo =============-->
-      <ion-item-option (click)="AddUpdateAmarylidaceas(c)">
+      <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="AddUpdateAmarylidaceas(c)">
         <ion-icon class="option-btn" name="create-outline"></ion-icon>
       </ion-item-option>
 
                   <!--=========== Eliminar Cultivo =============-->          
-      <ion-item-option (click)="confirmDeleteAmarylidaceas(c)" color="danger">
+      <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="confirmDeleteAmarylidaceas(c)" color="danger">
         <ion-icon class="option-btn" name="trash-outline"></ion-icon>
       </ion-item-option>
 
@@ -81,7 +81,7 @@ casi siempre son bayas (Bryonia) o bayas modificadas (pepónides), pero a veces 
 
 
   <!--=========== Nuevo Cultivo =============-->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="AddUpdateAmarylidaceas()" color="success">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

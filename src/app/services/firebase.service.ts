@@ -5,6 +5,7 @@ import { User } from '../models/user.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getFirestore, setDoc, doc, getDoc, addDoc, collection, collectionData, query, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,19 @@ export class FirebaseService {
   router= inject(Router);
   utilsSvc: any;
 
+    // Obtener el usuario actual y su rol desde Firestore
+    getCurrentUserWithRole(): Observable<User> {
+      return this.auth.authState.pipe(
+        switchMap(user => {
+          if (user) {
+            return this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
+          } else {
+            return of(null);
+            
+          }
+        })
+      );
+    }
 
 
   
