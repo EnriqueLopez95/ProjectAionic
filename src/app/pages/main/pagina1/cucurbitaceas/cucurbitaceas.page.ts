@@ -5,6 +5,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { AddUpdateCucurbitaceasComponent } from 'src/app/shared/components/add-update-cucurbitaceas/add-update-cucurbitaceas.component';
 import { ModalController } from '@ionic/angular';
 import { CurcubitaceasDetailComponent } from 'src/app/shared/components/curcubitaceas-detail/curcubitaceas-detail.component';
+import { User } from 'src/app/models/user.model'; // Asegúrate de importar el modelo de usuario aquí
 
 
 @Component({
@@ -16,6 +17,7 @@ export class CucurbitaceasPage implements OnInit {
 
 
 
+userRole: string = ''; // Aquí deberías obtener el rol del usuario
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService)
@@ -27,6 +29,7 @@ cultivoSeleccionado: Curcuvitacias; // Variable para almacenar el cultivo selecc
 
 
   ngOnInit() {
+    this.getUserRole(); // Llamamos a la función para obtener el rol del usuario al inicializar el componente
   }
 
 
@@ -141,4 +144,15 @@ ionViewWillEnter() {
       })
     
     }
+
+    
+    getUserRole() {
+      this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
+        if (user) {
+          // Suponemos que 'user.role' es el campo que contiene el rol del usuario en Firestore
+          this.userRole = user.role;
+        }
+      });
+    }
+
 }

@@ -5,6 +5,7 @@ import { ModalController } from '@ionic/angular';
 import { solanaceasDetailComponent } from 'src/app/shared/components/solanaceas-detail/solanaceas-detail.component.spec';
 import { solanaceasM } from 'src/app/models/solanaceas.model';
 import { AddUpdatesolanaceasComponent } from 'src/app/shared/components/add-update-solanaceas/add-update-solanaceas.component';
+import { User } from 'src/app/models/user.model'; // Asegúrate de importar el modelo de usuario aquí
 
 @Component({
   selector: 'app-solanaceas',
@@ -19,9 +20,11 @@ export class solanaceasPage implements OnInit {
 loading: boolean = false;
 cultivos: solanaceasM[] = [];
 cultivoSeleccionado: solanaceasM; // Variable para almacenar el cultivo seleccionado
+userRole: string = ''; // Aquí deberías obtener el rol del usuario
 
 
   ngOnInit() {
+    this.getUserRole(); // Llamamos a la función para obtener el rol del usuario al inicializar el componente
   }
 
 
@@ -136,5 +139,17 @@ ionViewWillEnter() {
       })
     
     }
+
+
+    getUserRole() {
+      this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
+        if (user) {
+          // Suponemos que 'user.role' es el campo que contiene el rol del usuario en Firestore
+          this.userRole = user.role;
+        }
+      });
+    }
+
+
 
 }

@@ -33,12 +33,12 @@
     <ion-item-options>
 
         <!--=========== Editar Cultivo =============-->
-      <ion-item-option (click)="AddUpdateApiaceae(c)">
+      <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="AddUpdateApiaceae(c)">
         <ion-icon class="option-btn" name="create-outline"></ion-icon>
       </ion-item-option>
 
                   <!--=========== Eliminar Cultivo =============-->          
-      <ion-item-option (click)="confirmDeleteApiaceae(c)" color="danger">
+      <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="confirmDeleteApiaceae(c)" color="danger">
         <ion-icon class="option-btn" name="trash-outline"></ion-icon>
       </ion-item-option>
 
@@ -65,7 +65,7 @@
 
 
   <!--=========== Nuevo Cultivo =============-->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="AddUpdateApiaceae()" color="success">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

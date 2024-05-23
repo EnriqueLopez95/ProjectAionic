@@ -5,6 +5,7 @@ import { ModalController } from '@ionic/angular';
 import { CruciferasM } from 'src/app/models/cruciferas.model';
 import { AddUpdateCruciferasComponent } from 'src/app/shared/components/add-update-cruciferas/add-update-cruciferas.component';
 import { CruciferasDetailComponent } from 'src/app/shared/components/cruciferas-detail/cruciferas-detail.component';
+import { User } from 'src/app/models/user.model'; // Asegúrate de importar el modelo de usuario aquí
 
 @Component({
   selector: 'app-cruciferas',
@@ -20,9 +21,10 @@ export class CruciferasPage implements OnInit {
 loading: boolean = false;
 cultivos: CruciferasM[] = [];
 cultivoSeleccionado: CruciferasM; // Variable para almacenar el cultivo seleccionado
+userRole: string = '';
 
-
-  ngOnInit() {
+  ngOnInit() {    
+    this.getUserRole();
   }
 
 
@@ -138,5 +140,13 @@ ionViewWillEnter() {
     
     }
 
+    getUserRole() {
+      this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
+        if (user) {
+          // Suponemos que 'user.role' es el campo que contiene el rol del usuario en Firestore
+          this.userRole = user.role;
+        }
+      });
+    }
 }
 

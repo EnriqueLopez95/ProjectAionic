@@ -5,6 +5,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { AddUpdateAmarylidaceasComponent } from 'src/app/shared/components/add-update-amarylidaceas/add-update-amarylidaceas.component';
 import { ModalController } from '@ionic/angular';
 import { AmarylidaceasDetailComponent } from 'src/app/shared/components/amarylidaceas-detail/amarylidaceas-detail.component';
+import { User } from 'src/app/models/user.model'; // Asegúrate de importar el modelo de usuario aquí
 
 @Component({
   selector: 'app-amarylidaceas',
@@ -15,14 +16,15 @@ export class AmarylidaceasPage implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService)
   constructor(private modalController: ModalController) {}
-
+userRole: string = '';
 loading: boolean = false;
 cultivos: AmarylidaceasM[] = [];
 cultivoSeleccionado: AmarylidaceasM; // Variable para almacenar el cultivo seleccionado
 
 
   ngOnInit() {
-  }
+     this.getUserRole(); 
+    }
 
 
   
@@ -137,4 +139,20 @@ ionViewWillEnter() {
     
     }
 
+
+
+        // Función para verificar si se debe mostrar u ocultar un elemento según el rol del usuario
+        public shouldShowElementForRole(role: string, userRole: string): boolean {
+          return role === userRole;
+        }
+
+
+                getUserRole() {
+      this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
+        if (user) {
+          // Suponemos que 'user.role' es el campo que contiene el rol del usuario en Firestore
+          this.userRole = user.role;
+        }
+      });
+    }
 }
