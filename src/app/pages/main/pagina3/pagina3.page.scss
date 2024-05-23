@@ -1,0 +1,118 @@
+/* pagina3.page.scss */
+
+.comment-content {
+  padding: 20px;
+  background-color: #bf5555;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-card {
+  margin-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
+  background-color: #ffffff;
+}
+
+.comment-input,
+.comment-button {
+  margin-top: 15px;
+}
+
+.comment-subtitle {
+  font-weight: bold;
+  color: #22ed9c;
+  font-size: 24px;
+}
+
+.comment-date {
+  font-size: 13px;
+  color: #28292c;
+  font-weight: bold;
+}
+
+.comment-textarea {
+  color: #250680;
+  padding: 15px;
+  font-size: 26px;
+  width: 100%;
+  border: none;
+  background: none;
+  resize: none;
+}
+
+.comment-input ion-label {
+  color: #38e42c;
+}
+
+.comment-button {
+  --background: #4cfd52; /* Color de fondo */
+  --color: #ffffff; /* Color del texto */
+  font-weight: bold;
+  border-radius: 10px; /* Bordes redondeados */
+  text-transform: uppercase;
+  font-size: 20px; /* Tamaño de texto */
+  padding: 10px 20px; /* Espaciado interno */
+  margin-top: 10px; /* Espaciado superior */
+}
+
+.comment-attachment {
+  width: 100%; /* Ajusta el ancho de la imagen para que se ajuste al contenedor */
+  max-height: 200px; /* Ajusta la altura máxima de la imagen para evitar que se vea desproporcionada */
+  object-fit: cover; /* Ajusta la imagen para que se ajuste dentro de su contenedor */
+}
+
+.comment-message {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #f0f4f8; /* Color de fondo */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.comment-message .comment-subtitle {
+  font-weight: bold;
+  color: #2d3e50; /* Color del texto */
+}
+
+.comment-message .comment-text {
+  color: #455a64; /* Color del texto */
+  margin-top: 10px;
+}
+
+/* Estilos para los iconos */
+.icon-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Ajusta según sea necesario */
+}
+
+.icon {
+  font-size: 30px; /* Tamaño de los iconos */
+  margin: 0 16px; /* Espaciado entre los iconos */
+}
+
+.icon.trash {
+  color: #e74c3c; /* Rojo para el icono de eliminar */
+}
+
+.icon.create {
+  color: #3498db; /* Azul para el icono de editar */
+}
+
+.icon.save {
+  color: #2ecc71; /* Verde para el icono de guardar */
+}
+
+.icon.close {
+  color: #e74c3c; /* Rojo para el icono de cancelar */
+}
+
+/* Añadir estilo a la fila de imágenes */
+.comment-attachments {
+  margin-bottom: 10px; /* Espacio entre las imágenes y el texto */
+}
