@@ -8,6 +8,6 @@ export interface Comment {
   user: string; // Nombre del usuario que realizó el comentario
   text: string; // Contenido del comentario
   date: firebase.firestore.Timestamp; // Fecha y hora en que se creó el comentario
-  attachments?: string[]; // URLs de archivos adjuntos
+  //attachments?: string[]; // URLs de archivos adjuntos
   id: string; // ID del usuario que realizó el comentario
 }

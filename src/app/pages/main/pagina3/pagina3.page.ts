@@ -12,7 +12,7 @@ import { User } from 'src/app/models/user.model';
 export class Pagina3Page implements OnInit {
   comments: Comment[] = [];
   text: string = '';
-  attachmentUrl: string = '';
+  //attachmentUrl: string = '';
   currentUser: User;
   editingComment: Comment = null;
 
@@ -39,12 +39,12 @@ export class Pagina3Page implements OnInit {
         user: this.currentUser.name,
         text: this.text,
         date: this.getCurrentTimestamp(), // Obtener la fecha y hora actual
-        attachments: this.attachmentUrl ? [this.attachmentUrl] : [], // Añadir URL de adjunto si existe
+        //attachments: this.attachmentUrl ? [this.attachmentUrl] : [], // Añadir URL de adjunto si existe
         id: this.currentUser.uid
       };
       this.commentService.addComment(newComment); // Añadir nuevo comentario
       this.text = '';
-      this.attachmentUrl = '';
+      //this.attachmentUrl = '';
     }
   }
 

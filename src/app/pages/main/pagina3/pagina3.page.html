@@ -18,11 +18,11 @@
         <ion-card-title class="comment-date">{{ comment.date.toDate() | date:'medium' }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-row *ngIf="comment.attachments && comment.attachments.length > 0" class="comment-attachments">
+        <!-- <ion-row *ngIf="comment.attachments && comment.attachments.length > 0" class="comment-attachments">
           <ion-col *ngFor="let attachment of comment.attachments" size="6">
             <img [src]="attachment" alt="Attachment" class="comment-attachment">
           </ion-col>
-        </ion-row>
+        </ion-row> -->
         <ion-textarea [(ngModel)]="comment.text" [disabled]="!canEdit(comment) || editingComment !== comment" class="comment-textarea"></ion-textarea>
       </ion-card-content>
       <!-- Iconos de editar y eliminar -->
@@ -41,9 +41,9 @@
     <ion-label position="floating">Comentario</ion-label>
     <ion-textarea [(ngModel)]="text" class="comment-textarea"></ion-textarea>
   </ion-item>
-  <ion-item class="comment-input">
+  <!-- <ion-item class="comment-input">
     <ion-label position="floating">Adjuntar archivo (URL)</ion-label>
     <ion-input type="url" [(ngModel)]="attachmentUrl"></ion-input>
-  </ion-item>
+  </ion-item> -->
   <ion-button expand="block" (click)="addComment()" class="comment-button">Comentar</ion-button>
 </ion-content>
