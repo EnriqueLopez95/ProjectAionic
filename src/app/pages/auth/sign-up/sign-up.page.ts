@@ -11,87 +11,83 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class SignUpPage implements OnInit {
   
+  // Definición del formulario con campos uid, email, password y name
   form = new FormGroup({
-    uid: new FormControl(''),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    name: new FormControl('', [Validators.required, Validators.minLength(4)])
+    uid: new FormControl(''), // Campo para el UID del usuario
+    email: new FormControl('', [Validators.required, Validators.email]), // Campo de email con validación
+    password: new FormControl('', [Validators.required]), // Campo de password con validación
+    name: new FormControl('', [Validators.required, Validators.minLength(4)]) // Campo de nombre con validación
   });
 
-  firebaseSvc= inject(FirebaseService);
-  utilsSvc= inject(UtilsService)
-
+  // Inyección de dependencias para los servicios de Firebase y utilidades
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
   ngOnInit() {
+    // Método del ciclo de vida de Angular que se ejecuta al inicializar el componente
   }
 
-  async submit(){
+  // Método asíncrono que se llama al enviar el formulario
+  async submit() {
+    if (this.form.valid) { // Verifica si el formulario es válido
+      const loading = await this.utilsSvc.loading(); // Muestra un indicador de carga
+      await loading.present(); // Espera a que el indicador de carga se presente
 
-    if (this.form.valid) {
+      // Llama al servicio de Firebase para registrar un nuevo usuario
+      this.firebaseSvc.signUp(this.form.value as User).then(async res => {
+        let uid = res.user.uid; // Obtiene el UID del usuario recién registrado
+        this.form.controls.uid.setValue(uid); // Establece el UID en el formulario
 
-      const loading = await this.utilsSvc.loading();
-      await loading.present();
+        this.setUserInfo(uid); // Guarda la información del usuario en la base de datos
 
-      this.firebaseSvc.signUp(this.form.value as User).then(async res =>{
-        
-        let uid= res.user.uid;
-        this.form.controls.uid.setValue(uid);
+      }).catch(error => {
+        console.log(error); // Muestra el error en la consola
 
-        this.setUserInfo(uid);
-
-      }).catch(error=>{
-        console.log(error);
-
+        // Muestra un mensaje de error en pantalla
         this.utilsSvc.presentToast({
           message: error.message,
           duration: 2500,
           color: 'primary',
           position: 'middle',
           icon: 'alert-circle-outline'
-        })
+        });
 
-
-      }).finally(()=> {
-        loading.dismiss();
-      })
-
-  }
-
-  }
-
-
-  async setUserInfo(uid: string) {
-    if (this.form.valid) {
-      
-      const loading = await this.utilsSvc.loading();
-      await loading.present();
-
-      let path = `users/${uid}`;
-      delete this.form.value.password;
-
-      this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
-        
-        this.utilsSvc.saveInLocalStorage('user', this.form.value);
-        this.utilsSvc.routerLink('places');
-        this.form.reset();
-
-
-      }).catch(error=>{
-        console.log(error);
-
-        this.utilsSvc.presentToast({
-          message: error.message,
-          duration: 2500,
-          color: 'primary',
-          position: 'middle',
-          icon: 'alert-circle-outline'
-        })
-
-      }).finally(()=> {
-        loading.dismiss();
-      })
-
+      }).finally(() => {
+        loading.dismiss(); // Oculta el indicador de carga
+      });
     }
   }
 
+  // Método asíncrono para guardar la información del usuario en Firebase
+  async setUserInfo(uid: string) {
+    if (this.form.valid) { // Verifica si el formulario es válido
+      const loading = await this.utilsSvc.loading(); // Muestra un indicador de carga
+      await loading.present(); // Espera a que el indicador de carga se presente
+
+      let path = `users/${uid}`; // Define la ruta al documento del usuario en Firebase
+      delete this.form.value.password; // Elimina el campo password del formulario antes de guardar
+
+      // Llama al servicio de Firebase para guardar el documento del usuario
+      this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
+        this.utilsSvc.saveInLocalStorage('user', this.form.value); // Guarda la información del usuario en el almacenamiento local
+        this.utilsSvc.routerLink('places'); // Redirige a la página 'places'
+        this.form.reset(); // Resetea el formulario
+
+      }).catch(error => {
+        console.log(error); // Muestra el error en la consola
+
+        // Muestra un mensaje de error en pantalla
+        this.utilsSvc.presentToast({
+          message: error.message,
+          duration: 2500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'alert-circle-outline'
+        });
+
+      }).finally(() => {
+        loading.dismiss(); // Oculta el indicador de carga
+      });
+    }
+  }
 }
