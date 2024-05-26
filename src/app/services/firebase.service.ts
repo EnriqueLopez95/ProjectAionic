@@ -17,19 +17,21 @@ export class FirebaseService {
   router= inject(Router);
   utilsSvc: any;
 
-    // Obtener el usuario actual y su rol desde Firestore
-    getCurrentUserWithRole(): Observable<User> {
-      return this.auth.authState.pipe(
-        switchMap(user => {
-          if (user) {
-            return this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
-          } else {
-            return of(null);
-            
-          }
-        })
-      );
-    }
+
+  // Obtener el usuario actual y su rol desde Firestore
+  getCurrentUserWithRole(): Observable<User> {
+    return this.auth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          // Si hay un usuario autenticado, obtenemos el documento del usuario en Firestore
+          return this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          // Si no hay un usuario autenticado, devolvemos un observable que emite null
+          return of(null);
+        }
+      })
+    );
+  }
 
 
   

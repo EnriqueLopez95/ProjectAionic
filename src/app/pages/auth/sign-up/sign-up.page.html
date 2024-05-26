@@ -7,10 +7,9 @@
 
     <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
 
-      <app-logo></app-logo>
-
  <!--======================= Name ==========================-->
-      <app-custom-input
+ <img src="https://th.bing.com/th/id/R.d4eccc9bc15b18444e1cb5130ba81090?rik=4mwHrf93lxWMzw&riu=http%3a%2f%2facademicacurc.uls.edu.sv%2fsgestu%2fpublic%2fimg%2flogin%2flogoRebr.png&ehk=p5ewb4RJdCpKIxMZam9QDbOGlwqe9y%2fM7ec2d2xoy%2bs%3d&risl=&pid=ImgRaw&r=0" alt="Logo ULSN">
+ <app-custom-input
       autocomplete="name"
       icon="person-outline"
       [control]="form.controls.name"

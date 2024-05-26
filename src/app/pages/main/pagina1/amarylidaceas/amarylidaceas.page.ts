@@ -23,6 +23,7 @@ cultivoSeleccionado: AmarylidaceasM; // Variable para almacenar el cultivo selec
 
 
   ngOnInit() {
+        // Llamamos a getUserRole al crear una instancia de MyComponent
      this.getUserRole(); 
     }
 
@@ -141,18 +142,19 @@ ionViewWillEnter() {
 
 
 
-        // Función para verificar si se debe mostrar u ocultar un elemento según el rol del usuario
-        public shouldShowElementForRole(role: string, userRole: string): boolean {
-          return role === userRole;
-        }
+  // Función para verificar si se debe mostrar u ocultar un elemento según el rol del usuario
+  public shouldShowElementForRole(role: string, userRole: string): boolean {
+    // Compara el rol requerido con el rol del usuario
+    return role === userRole;
+  }
 
-
-                getUserRole() {
-      this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
-        if (user) {
-          // Suponemos que 'user.role' es el campo que contiene el rol del usuario en Firestore
-          this.userRole = user.role;
-        }
-      });
-    }
+  // Obtener el rol del usuario y almacenarlo en la propiedad userRole
+  getUserRole() {
+    this.firebaseSvc.getCurrentUserWithRole().subscribe((user: User) => {
+      if (user) {
+        // Suponemos que '5689user.role' es el campo que contiene el rol del usuario en Firestore
+        this.userRole = user.role;
+      }
+    });
+  }
 }
