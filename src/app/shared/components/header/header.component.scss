@@ -4,4 +4,20 @@
 .custom-alert .alert-input {
     margin-top: 0; /* Elimina el margen superior */
   }
+
+ion-toolbar[color="success"] {
+    --ion-color-success: #191970;
+}
+
+ion-title div.Admin {
+    color: white;
+}
+
+.menu-button ion-icon {
+    color: white;
+  }
+
+.title {
+    color: white;
+  }
   

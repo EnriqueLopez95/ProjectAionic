@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   images = [
     '/assets/ImageCarrusel/image5.png',
     '/assets/ImageCarrusel/image8.jpg',
-    '/assets/ImageCarrusel/image7.png',
+    '/assets/ImageCarrusel/image7.jpg',
     '/assets/ImageCarrusel/image9.jpg'
   ]
 

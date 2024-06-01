@@ -3,8 +3,9 @@
     <ion-buttons slot="start">
       <!--======= Volver ========-->
       <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
-      <ion-menu-button *ngIf="showMenu" slot="start" menu="menu-content"></ion-menu-button>
-
+      <ion-menu-button *ngIf="showMenu"  menu="menu-content" class="menu-button">
+        <ion-icon name="grid-outline"></ion-icon>
+      </ion-menu-button>
             <!--======= Cerrar Modal ========-->
 
             <ion-button (click)="dismissModal()" *ngIf="isModal">
@@ -12,7 +13,7 @@
             </ion-button>
     </ion-buttons>
     <ion-title>
-      <strong *ngIf="!showSearch">{{ title }}</strong>
+      <strong *ngIf="!showSearch" class="title">{{ title }}</strong>
       <div class="Admin" *ngIf="!showSearch">
         A G R O E C O L O G I A 
       </div>
