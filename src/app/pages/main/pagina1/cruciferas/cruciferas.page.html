@@ -14,7 +14,7 @@
   </ion-card>
 
 
-<!-------- PRODUCTOS -------->
+<!-------- CULTIVOS -------->
 <ion-list *ngIf="!loading">
   <div class="data ion-text-center">
     <strong>Cultivos que la integran:</strong>
@@ -47,7 +47,9 @@
 
 
   </ion-item-sliding>
+  <ion-button (click)="generatePDF()" expand="full">Generar PDF</ion-button>
 </ion-list>
+
 
 <!--------------CARGANDO------------------>
 

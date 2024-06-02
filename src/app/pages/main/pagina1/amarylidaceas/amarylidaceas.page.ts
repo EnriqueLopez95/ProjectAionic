@@ -6,6 +6,11 @@ import { AddUpdateAmarylidaceasComponent } from 'src/app/shared/components/add-u
 import { ModalController } from '@ionic/angular';
 import { AmarylidaceasDetailComponent } from 'src/app/shared/components/amarylidaceas-detail/amarylidaceas-detail.component';
 import { User } from 'src/app/models/user.model'; // Asegúrate de importar el modelo de usuario aquí
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { NgIf } from '@angular/common';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-amarylidaceas',
@@ -157,4 +162,59 @@ ionViewWillEnter() {
       }
     });
   }
+
+
+          generatePDF() {
+      const documentDefinition = {
+        content: [
+          { text: 'Cultivos de Amarylidaceas', style: 'header' },
+          ...this.cultivos.map(cultivo => ({
+            table: {
+              widths: ['auto', '*'],
+              body: [
+                [{ text: 'Nombre', style: 'tableHeader' }, { text: cultivo.nombre, style: 'tableData' }],
+                [{ text: 'Descripción', style: 'tableHeader' }, { text: cultivo.descripcion, style: 'tableData' }],
+                [{ text: 'Tiempo de Cosecha', style: 'tableHeader' }, { text: cultivo.tiempoCosecha, style: 'tableData' }],
+                [{ text: 'Fertilización', style: 'tableHeader' }, { text: cultivo.fertilizacion, style: 'tableData' }],
+                [{ text: 'Marco de Cultivo', style: 'tableHeader' }, { text: cultivo.MarcoCultivo, style: 'tableData' }],
+                [{ text: 'Riego', style: 'tableHeader' }, { text: cultivo.Riego, style: 'tableData' }],
+                [{ text: 'Cultivos de Ciclo Corto', style: 'tableHeader' }, { text: cultivo.cultivosCicloCorto, style: 'tableData' }]
+              ]
+            },
+            layout: {
+              fillColor: function (rowIndex, node, columnIndex) {
+                return (rowIndex % 2 === 0) ? '#f2f2f2' : null;
+              }
+            },
+            margin: [0, 10, 0, 10] // Separación entre tablas de cultivos
+          }))
+        ],
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true,
+            marginBottom: 20,
+            alignment: 'center'
+          },
+          tableHeader: {
+            bold: true,
+            fontSize: 12,
+            fillColor: '#4CAF50',
+            color: 'white'
+          },
+          tableData: {
+            fontSize: 10,
+            margin: [0, 5, 0, 5]
+          }
+        },
+        defaultStyle: {
+          fontSize: 10,
+          alignment: 'left'
+        },
+        pageSize: 'A4',
+        pageMargins: [20, 20, 20, 20]
+      };
+    
+      pdfMake.createPdf(documentDefinition).download('cultivos_amarylidaceas.pdf');
+    }
 }

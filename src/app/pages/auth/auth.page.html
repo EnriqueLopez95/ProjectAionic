@@ -1,12 +1,17 @@
-<app-header [isAuth]="isAuth" title="login"></app-header>
+
 <ion-content>
+
 <div class="d-flex-center">
   <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
 
     <img src="https://th.bing.com/th/id/R.d4eccc9bc15b18444e1cb5130ba81090?rik=4mwHrf93lxWMzw&riu=http%3a%2f%2facademicacurc.uls.edu.sv%2fsgestu%2fpublic%2fimg%2flogin%2flogoRebr.png&ehk=p5ewb4RJdCpKIxMZam9QDbOGlwqe9y%2fM7ec2d2xoy%2bs%3d&risl=&pid=ImgRaw&r=0" alt="Logo ULSN">
+    
+    <div class="message">
+      <p>Aplicación sobre Asocio de Cultivos de Ciclo Corto</p>
+    </div>
     <app-custom-input
     autocomplete="email"
-    icon="mail-outline"
+    icon="person-outline"
     [control]="form.controls.email"
     type="email"
     label="Correo"
@@ -20,7 +25,7 @@
   
   <app-custom-input 
   [control]="form.controls.password"
-  icon="lock-closed-outline"
+  icon="key-outline"
   type="password"
   label="Contraseña"
   ></app-custom-input>
@@ -32,12 +37,12 @@
    <p routerLink="forgot-password" class="ion-text-end">¿Olvidaste tu contraseña?</p>
 
 
-   <ion-button color="success" expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+   <ion-button  expand="block" mode="ios" class="submit btn btn-lg btn-primary btn-block mt-3" type="submit" [disabled]="form.invalid">
     Ingresar
     <ion-icon slot="end" name="log-in-outline"></ion-icon>
  </ion-button>
 
- <ion-button color="success" class="ion-margin-top" routerLink="sign-up" routerLinkActive="router-link-active"  expand="block" mode="ios" class="submit" fill="outline">
+ <ion-button color="black" class="ion-margin-top" routerLink="sign-up" routerLinkActive="router-link-active"  expand="block" mode="ios" class="submit" fill="outline">
   Regístrate
   <ion-icon slot="end" name="person-add-outline"></ion-icon>
 </ion-button>

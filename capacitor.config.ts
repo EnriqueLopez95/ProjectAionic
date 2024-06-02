@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.Agroecologia',
-  appName: 'AppAgroecologia',
+  appId: 'com.example.app',
+  appName: 'ACCC_ULS',
   webDir: 'www',
   server: {
     androidScheme: 'https'

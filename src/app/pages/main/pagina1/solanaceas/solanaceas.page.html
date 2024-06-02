@@ -2,69 +2,62 @@
 
 
 <ion-content [fullscreen]="true">
-
-
   <ion-card *ngIf="!loading">
     <ion-card-content>
       <img  class="center" src="https://elenacarrio.es/wp-content/uploads/2021/08/Solanaceas.jpg" alt="solanaceas" class="family-image">
       <p>
         La familia Solanaceae es un grupo de plantas con flores perteneciente al orden Solanales. Se caracteriza por incluir una amplia variedad de especies herbáceas, arbustivas y leñosas, muchas de las cuales tienen importancia económica y cultural. Las plantas de esta familia se distribuyen en todo el mundo, pero son más comunes en regiones tropicales y subtropicales.
         
-        Las Solanaceae se distinguen por sus flores generalmente hermafroditas, con cinco pétalos unidos que forman una corola tubular o en forma de campana. Sus frutos pueden ser de diferentes tipos, incluyendo bayas, cápsulas o incluso frutos secos. </p>
+        Las Solanaceae se distinguen por sus flores generalmente hermafroditas, con cinco pétalos unidos que forman una corola tubular o en forma de campana. Sus frutos pueden ser de diferentes tipos, incluyendo bayas, cápsulas o incluso frutos secos.
+      </p>
     </ion-card-content>
   </ion-card>
 
+  <!-------- CULTIVOS -------->
+  <ion-list *ngIf="!loading">
+    <div class="data ion-text-center">
+      <strong>Cultivos que la integran:</strong>
+    </div>
+    <ion-item-sliding class="product-item" *ngFor="let c of cultivos">
+      <ion-item (click)="solanaceasDetail(c)">
+        <ion-avatar>
+          <img [src]="c.imagen" />
+        </ion-avatar>
+        <ion-label class="ion-text-center">
+          <div class="name"><strong>{{c.nombre}}</strong></div>
+        </ion-label>
+      </ion-item>
 
-<!-------- PRODUCTOS -------->
-<ion-list *ngIf="!loading">
-  <div class="data ion-text-center">
-    <strong>Cultivos que la integran:</strong>
-  </div>
-  <ion-item-sliding class="product-item" *ngFor="let c of cultivos">
-    <ion-item (click)="solanaceasDetail(c)">
-      <ion-avatar>
-        <img [src]="c.imagen" />
-      </ion-avatar>
-      <ion-label class="ion-text-center">
-        <div class="name"><strong>{{c.nombre}}</strong></div>
-      </ion-label>
-    </ion-item>
-
-          <!--=========== Opciones =============-->
-
-    <ion-item-options>
-
+      <!--=========== Opciones =============-->
+      <ion-item-options>
         <!--=========== Editar Cultivo =============-->
-      <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="AddUpdatesolanaceas(c)">
-        <ion-icon class="option-btn" name="create-outline"></ion-icon>
-      </ion-item-option>
+        <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="AddUpdatesolanaceas(c)">
+          <ion-icon class="option-btn" name="create-outline"></ion-icon>
+        </ion-item-option>
 
-                  <!--=========== Eliminar Cultivo =============-->          
-      <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="confirmDeletesolanaceas(c)" color="danger">
-        <ion-icon class="option-btn" name="trash-outline"></ion-icon>
-      </ion-item-option>
+        <!--=========== Eliminar Cultivo =============-->
+        <ion-item-option *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" (click)="confirmDeletesolanaceas(c)" color="danger">
+          <ion-icon class="option-btn" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-button (click)="generatePDF()" expand="full">Generar PDF</ion-button>
+  </ion-list>
 
-    </ion-item-options>
 
 
-  </ion-item-sliding>
-</ion-list>
-
-<!--------------CARGANDO------------------>
-
-<ion-list *ngIf="loading">
+  <!--------------CARGANDO------------------>
+  <ion-list *ngIf="loading">
     <ion-item class="product-item" *ngFor="let c of [1,1,1,1,1,1,1,1,1,1]">
       <ion-avatar slot="start">
-<ion-skeleton-text animated style="width: 100%; height: 100%"></ion-skeleton-text>      </ion-avatar>
+        <ion-skeleton-text animated style="width: 100%; height: 100%"></ion-skeleton-text>
+      </ion-avatar>
       <ion-label class="ion-text-center">
-<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-<ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
       </ion-label>
     </ion-item>
-
-</ion-list>
-
-
+  </ion-list>
 
   <!--=========== Nuevo Cultivo =============-->
   <ion-fab *ngIf="utilsSvc.shouldShowElementForRole('admin', userRole)" vertical="bottom" horizontal="end" slot="fixed">
